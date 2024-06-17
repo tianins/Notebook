@@ -8,15 +8,48 @@
    官方安装教程
    https://www.mongodb.com/zh-cn/docs/manual/tutorial/install-mongodb-on-ubuntu/
    
+   MongoDB6.0安装教程（推荐）
    https://blog.csdn.net/lion_no_back/article/details/128513143
-                           
-   原文链接：https://blog.csdn.net/yutu75/article/details/110941936
+        
+   MongoDB server version: 4.4.29 （这个版本太老了，好多教程都不支持）    
+   https://blog.csdn.net/yutu75/article/details/110941936
    
    新建环境
    conda create -n MongoDB python=3.10 -y
    安装MongoDB
    pip install pymongo
    ```
+
+   启动和关闭mongo
+
+   ```
+   # 重新加载配置，并启动mongodb
+   sudo systemctl daemon-reload
+   sudo systemctl start mongod
+   
+   # 查看运行状态
+   sudo systemctl status mongod
+   # 如果mongodb状态为stop，则运行 sudo systemctl enable mongod
+   
+   # 停止mongodb
+   sudo systemctl stop mongod
+   
+   # 重启mongodb
+   sudo systemctl restart mongod
+   
+   
+   # 启动报错
+   之前想在浏览器访问mongo，就去修改了配置文件，加上了端口，结果不知道是不是加错地方了
+   启动一直报错，debug半天，后面发现把之前加的给删了再重新启动就好了
+   
+   # mongo每个版本之间的区别很大，一定要按照版本搜教程
+   在本机上安装的版本是：
+   MongoDB server version: 4.4.29
+   （但是这个版本安装时需要额外安装一个文件libssl1.1）
+   但是这个版本太老，不建议安装
+   ```
+
+   
 
    安装数据库报错
 
@@ -168,11 +201,9 @@
    use testdb
    查询集合
    db.cars.find()
-   ```
-
    
-
-```
-https://blog.csdn.net/abments/article/details/138275899
-```
+   
+   ```
+   
+   
 
