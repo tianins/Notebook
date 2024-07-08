@@ -34,4 +34,21 @@
 
    
 
-2. 
+2. docker无法联网
+
+   ```
+   本地可以连接外网，但是docker容器不能。
+   解决办法：
+   使用--net=host宿主机网络方式启动容器
+   # 示例
+   docker run --net=host --name ubuntu_bash -i -t ubuntu:latest /bin/bash
+   
+   docker run --net=host --rm alpine ping -c 5 baidu.com
+   
+   
+   https://blog.csdn.net/a772304419/article/details/133649206
+   ```
+
+   
+
+3. 
